@@ -16,10 +16,8 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -134,12 +132,7 @@ public class BubbleView extends RelativeLayout {
                         bubbleAnimation(rankWidth, rankHeight);
                     }
                 });
-//                .subscribe(new Action1<Long>() {
-//                    @Override
-//                    public void call(Long aLong) {
-//                        bubbleAnimation(rankWidth, rankHeight);
-//                    }
-//                });
+
     }
 
     @SuppressLint("CheckResult")
