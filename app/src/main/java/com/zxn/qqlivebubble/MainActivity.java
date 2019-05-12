@@ -26,16 +26,28 @@ public class MainActivity extends AppCompatActivity {
 
         bubbleView = (BubbleView) findViewById(R.id.BubbleView);
         List<Drawable> drawableList = new ArrayList<>();
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_indigo_900_24dp));
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_deep_purple_900_24dp));
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_cyan_900_24dp));
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_blue_900_24dp));
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_deep_purple_900_24dp));
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_light_blue_900_24dp));
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_lime_a200_24dp));
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_pink_900_24dp));
-        drawableList.add(getResources().getDrawable(R.drawable.ic_favorite_red_900_24dp));
-        bubbleView.setDrawableList(drawableList);
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_a));
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_b));
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_c));
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_d));
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_e));
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_f));
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_h));
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_i));
+        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_j));
+//        drawableList.add(getResources().getDrawable(R.drawable.ic_heart_balloon_k));
+
+        /*Drawable drawable = getResources().getDrawable(R.drawable.ic_three_ball);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        bubbleView.setGiftBoxImage(drawable, bubbleView.getWidth() / 2, bubbleView.getHeight() / 2);*/
+
+        bubbleView.setDrawableList(drawableList)
+                .setAnimationDelay(200)
+                .setRiseDuration(7 * 1000)
+                .setMinHeartNum(10)
+                .setItemViewWH(getResources().getDimensionPixelOffset(R.dimen.dp_60), getResources().getDimensionPixelOffset(R.dimen.dp_120))
+                .setScaleAnimation(2, 1);
+
     }
 
     private void initSystemView() {
@@ -47,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 bubbleView.startAnimation(bubbleView.getWidth(), bubbleView.getHeight());
             }
         });

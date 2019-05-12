@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -26,7 +27,8 @@ import io.reactivex.functions.Consumer;
 public class BubbleView extends RelativeLayout {
     private List<Drawable> drawableList = new ArrayList<>();
 
-    private int viewWidth = dp2pix(16), viewHeight = dp2pix(16);
+        private int viewWidth = dp2pix(16), viewHeight = dp2pix(16);
+//    private int viewWidth = dp2pix(60), viewHeight = dp2pix(120);
 
     private int maxHeartNum = 8;
     private int minHeartNum = 2;
@@ -40,6 +42,7 @@ public class BubbleView extends RelativeLayout {
     private float minScale = 1.0f;
 
     private int innerDelay = 200;
+    private ImageView mGiftImageView;
 
     public BubbleView(Context context) {
         super(context);
@@ -88,8 +91,9 @@ public class BubbleView extends RelativeLayout {
         this.maxHeartNum = maxHeartNum;
     }
 
-    public void setMinHeartNum(int minHeartNum) {
+    public BubbleView setMinHeartNum(int minHeartNum) {
         this.minHeartNum = minHeartNum;
+        return this;
     }
 
     public BubbleView setItemViewWH(int viewWidth, int viewHeight) {
@@ -98,13 +102,13 @@ public class BubbleView extends RelativeLayout {
         return this;
     }
 
-    public BubbleView setGiftBoxImaeg(Drawable drawable, int positionX, int positionY) {
-        ImageView imageView = new ImageView(getContext());
-        imageView.setImageDrawable(drawable);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(imageView.getWidth(), imageView.getHeight());
-        this.addView(imageView, layoutParams);
-        imageView.setX(positionX);
-        imageView.setY(positionY);
+    public BubbleView setGiftBoxImage(Drawable drawable, int positionX, int positionY) {
+        mGiftImageView = new ImageView(getContext());
+        mGiftImageView.setImageDrawable(drawable);
+        LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        this.addView(mGiftImageView, layoutParams);
+        mGiftImageView.setX(positionX);
+        mGiftImageView.setY(positionY);
         return this;
     }
 
@@ -229,6 +233,7 @@ public class BubbleView extends RelativeLayout {
             public void onAnimationEnd(Animator animation) {
                 removeView(imageView);
                 imageView.setImageDrawable(null);
+
             }
 
             @Override
@@ -278,4 +283,5 @@ public class BubbleView extends RelativeLayout {
         int dp = (int) (pix / scale + 0.5f);
         return dp;
     }
+
 }
