@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 5
+        versionName "1.0.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -36,7 +36,7 @@ def siteUrl = 'https://github.com/zhang721688/XMBubbleView'
 def gitUrl = 'https://github.com/zhang721688/XMBubbleView.git'
 def libName = "xm-bubbleview"
 group = "com.zxn.xmbubbleview"
-version = "1.0.1"
+version = "1.0.5"
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'

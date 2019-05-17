@@ -87,8 +87,9 @@ public class BubbleView extends RelativeLayout {
         return this;
     }
 
-    public void setMaxHeartNum(int maxHeartNum) {
+    public BubbleView setMaxHeartNum(int maxHeartNum) {
         this.maxHeartNum = maxHeartNum;
+        return this;
     }
 
     public BubbleView setMinHeartNum(int minHeartNum) {
